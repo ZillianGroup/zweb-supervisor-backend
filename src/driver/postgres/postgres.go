@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/illacloud/illa-supervisor-backend/src/utils/config"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/config"
 	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -13,11 +13,11 @@ import (
 const RETRY_TIMES = 6
 
 type PostgresConfig struct {
-	Addr     string `env:"ILLA_SUPERVISOR_PG_ADDR" envDefault:"localhost"`
-	Port     string `env:"ILLA_SUPERVISOR_PG_PORT" envDefault:"5432"`
-	User     string `env:"ILLA_SUPERVISOR_PG_USER" envDefault:"illa_supervisor"`
-	Password string `env:"ILLA_SUPERVISOR_PG_PASSWORD" envDefault:"illa2022"`
-	Database string `env:"ILLA_SUPERVISOR_PG_DATABASE" envDefault:"illa_supervisor"`
+	Addr     string `env:"ZWEB_SUPERVISOR_PG_ADDR" envDefault:"localhost"`
+	Port     string `env:"ZWEB_SUPERVISOR_PG_PORT" envDefault:"5432"`
+	User     string `env:"ZWEB_SUPERVISOR_PG_USER" envDefault:"zweb_supervisor"`
+	Password string `env:"ZWEB_SUPERVISOR_PG_PASSWORD" envDefault:"zweb2022"`
+	Database string `env:"ZWEB_SUPERVISOR_PG_DATABASE" envDefault:"zweb_supervisor"`
 }
 
 func NewPostgresConnectionByGlobalConfig(config *config.Config, logger *zap.SugaredLogger) (*gorm.DB, error) {

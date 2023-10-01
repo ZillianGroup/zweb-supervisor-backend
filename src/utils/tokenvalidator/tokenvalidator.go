@@ -10,7 +10,7 @@ import (
 )
 
 type Config struct {
-	Secret string `env:"ILLA_SECRET_KEY" envDefault:""`
+	Secret string `env:"ZWEB_SECRET_KEY" envDefault:""`
 }
 
 func GetConfig() (*Config, error) {
@@ -26,7 +26,7 @@ type RequestTokenValidator struct {
 func NewRequestTokenValidator() (*RequestTokenValidator, error) {
 	cfg, err := GetConfig()
 	if err != nil {
-		panic("this environment param ILLA_SECRET_KEY must be setted.")
+		panic("this environment param ZWEB_SECRET_KEY must be setted.")
 	}
 	return &RequestTokenValidator{
 		Config: cfg,

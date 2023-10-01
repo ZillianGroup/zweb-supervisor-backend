@@ -3,9 +3,9 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/illacloud/illa-supervisor-backend/src/accesscontrol"
-	"github.com/illacloud/illa-supervisor-backend/src/authenticator"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/accesscontrol"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/authenticator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
 )
 
 func (controller *Controller) ValidateAccount(c *gin.Context) {

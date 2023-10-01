@@ -3,18 +3,18 @@ package main
 import (
 	"os"
 
-	"github.com/illacloud/illa-supervisor-backend/src/authenticator"
-	"github.com/illacloud/illa-supervisor-backend/src/controller"
-	"github.com/illacloud/illa-supervisor-backend/src/driver/minio"
-	"github.com/illacloud/illa-supervisor-backend/src/driver/postgres"
-	"github.com/illacloud/illa-supervisor-backend/src/driver/redis"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
-	"github.com/illacloud/illa-supervisor-backend/src/router"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/config"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/cors"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/logger"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/recovery"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/tokenvalidator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/authenticator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/controller"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/driver/minio"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/driver/postgres"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/driver/redis"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/router"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/config"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/cors"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/logger"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/recovery"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/tokenvalidator"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -63,7 +63,7 @@ func initDrive(globalConfig *config.Config, logger *zap.SugaredLogger) *model.Dr
 
 func initServer() (*Server, error) {
 	// set trial key for self-host users
-	os.Setenv("ILLA_SECRET_KEY", "8xEMrWkBARcDDYQ")
+	os.Setenv("ZWEB_SECRET_KEY", "8xEMrWkBARcDDYQ")
 	// init
 	globalConfig, err := config.GetConfig()
 	if err != nil {
@@ -92,7 +92,7 @@ func initServer() (*Server, error) {
 }
 
 func (server *Server) Start() {
-	server.logger.Infow("Starting illa-supervisor-backend.")
+	server.logger.Infow("Starting zweb-supervisor-backend.")
 
 	// init
 	gin.SetMode(server.config.ServerMode)

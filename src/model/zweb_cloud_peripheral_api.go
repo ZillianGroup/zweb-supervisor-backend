@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	EMAIL_DELIVER_BASEURL                = "https://email.illasoft.com/v1/"
+	EMAIL_DELIVER_BASEURL                = "https://email.zilliangroup.com/v1/"
 	EMAIL_DELIVER_USAGE_SUBSCRIBE        = "subscribe"
 	EMAIL_DELIVER_USAGE_VERIFICATIONCODE = "code"
 	EMAIL_DELIVER_INVITE_EMAIL           = "invite"

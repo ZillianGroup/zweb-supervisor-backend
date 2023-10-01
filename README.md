@@ -1,4 +1,4 @@
-illa-supervisor-backend
+zweb-supervisor-backend
 ------------------------
 
 
@@ -11,7 +11,7 @@ illa-supervisor-backend
 
 # Desc
 
-illa supervisor for illa units.
+zweb supervisor for zweb units.
 
 
 

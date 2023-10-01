@@ -7,8 +7,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/idconvertor"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/idconvertor"
 )
 
 const PARAM_AUTHORIZATION_TOKEN = "Authorization-Token"

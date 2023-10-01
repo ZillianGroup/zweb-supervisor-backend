@@ -16,7 +16,7 @@ var xor = 111111111
 var add = 9999999999
 
 type Config struct {
-	RandomKey string `env:"ILLA_RANDOM_KEY" envDefault:"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"`
+	RandomKey string `env:"ZWEB_RANDOM_KEY" envDefault:"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"`
 }
 
 func init() {

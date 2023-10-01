@@ -1,6 +1,6 @@
 package accesscontrol
 
-import "github.com/illacloud/illa-supervisor-backend/src/model"
+import "github.com/zilliangroup/zweb-supervisor-backend/src/model"
 
 // default
 const ANONYMOUS_AUTH_TOKEN = ""

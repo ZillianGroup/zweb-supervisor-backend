@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/idconvertor"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/idconvertor"
 )
 
 type GetMyTeamsResponse struct {

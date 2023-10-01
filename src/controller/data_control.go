@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
 )
 
 func (controller *Controller) GetTargetUserByInternalRequest(c *gin.Context) {

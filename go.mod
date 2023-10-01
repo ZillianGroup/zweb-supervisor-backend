@@ -1,4 +1,4 @@
-module github.com/illacloud/illa-supervisor-backend
+module github.com/zilliangroup/zweb-supervisor-backend
 
 go 1.18
 

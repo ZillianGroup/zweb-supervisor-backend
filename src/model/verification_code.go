@@ -32,14 +32,14 @@ func GenerateAndSendVerificationCode(email, usage string) (string, error) {
 		Code:  vCode,
 		Usage: usage,
 		RegisteredClaims: jwt.RegisteredClaims{
-			Issuer: "ILLA",
+			Issuer: "ZWEB",
 			ExpiresAt: &jwt.NumericDate{
 				Time: time.Now().Add(time.Minute * 15),
 			},
 		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	codeToken, err := token.SignedString([]byte(os.Getenv("ILLA_SECRET_KEY")))
+	codeToken, err := token.SignedString([]byte(os.Getenv("ZWEB_SECRET_KEY")))
 	if err != nil {
 		return "", err
 	}
@@ -50,7 +50,7 @@ func GenerateAndSendVerificationCode(email, usage string) (string, error) {
 func ValidateVerificationCode(vCode, codeToken, email, usage string) (bool, error) {
 	vCodeClaims := &VCodeClaims{}
 	token, err := jwt.ParseWithClaims(codeToken, vCodeClaims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(os.Getenv("ILLA_SECRET_KEY")), nil
+		return []byte(os.Getenv("ZWEB_SECRET_KEY")), nil
 	})
 	if err != nil {
 		return false, err

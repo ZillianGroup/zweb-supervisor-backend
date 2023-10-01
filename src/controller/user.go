@@ -8,8 +8,8 @@ import (
 	"github.com/go-playground/validator/v10"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/illacloud/illa-supervisor-backend/src/authenticator"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/authenticator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
 )
 
 // generate and send verification code email
@@ -188,7 +188,7 @@ func (controller *Controller) signUpWithEmailToken(req *model.SignUpRequest, inv
 		controller.FeedbackBadRequest(c, ERROR_FLAG_SIGN_IN_FAILED, "cache token expired at failed")
 		return
 	}
-	c.Header("illa-token", accessToken)
+	c.Header("zweb-token", accessToken)
 
 	// ok, feedback
 	controller.FeedbackOK(c, model.NewSignUpResponse(user))
@@ -246,7 +246,7 @@ func (controller *Controller) signUpWithLinkToken(req *model.SignUpRequest, invi
 		controller.FeedbackBadRequest(c, ERROR_FLAG_SIGN_IN_FAILED, "cache token expired at failed")
 		return
 	}
-	c.Header("illa-token", accessToken)
+	c.Header("zweb-token", accessToken)
 
 	// ok, feedback
 	controller.FeedbackOK(c, model.NewSignUpResponse(user))
@@ -297,7 +297,7 @@ func (controller *Controller) signUpWithoutToken(req *model.SignUpRequest, c *gi
 		controller.FeedbackBadRequest(c, ERROR_FLAG_SIGN_IN_FAILED, "cache token expired at failed")
 		return
 	}
-	c.Header("illa-token", accessToken)
+	c.Header("zweb-token", accessToken)
 
 	// ok, feedback
 	controller.FeedbackOK(c, model.NewSignUpResponse(user))
@@ -346,7 +346,7 @@ func (controller *Controller) SignIn(c *gin.Context) {
 		controller.FeedbackBadRequest(c, ERROR_FLAG_SIGN_IN_FAILED, "cache token expired at failed")
 		return
 	}
-	c.Header("illa-token", accessToken)
+	c.Header("zweb-token", accessToken)
 
 	// ok, feedback
 	controller.FeedbackOK(c, model.NewSignUpResponse(user))

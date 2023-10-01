@@ -13,7 +13,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/google/uuid"
 
-	"github.com/illacloud/illa-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
 )
 
 type AuthClaims struct {
@@ -47,7 +47,7 @@ func (a *Authenticator) ValidateAccessToken(accessToken string) (bool, error) {
 func ExtractUserIDFromToken(accessToken string) (int, uuid.UUID, error) {
 	authClaims := &AuthClaims{}
 	token, err := jwt.ParseWithClaims(accessToken, authClaims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(os.Getenv("ILLA_SECRET_KEY")), nil
+		return []byte(os.Getenv("ZWEB_SECRET_KEY")), nil
 	})
 	if err != nil {
 		return 0, uuid.Nil, err
@@ -64,7 +64,7 @@ func ExtractUserIDFromToken(accessToken string) (int, uuid.UUID, error) {
 func ExtractExpiresAtFromToken(accessToken string) (*jwt.NumericDate, error) {
 	authClaims := &AuthClaims{}
 	token, err := jwt.ParseWithClaims(accessToken, authClaims, func(token *jwt.Token) (interface{}, error) {
-		return []byte(os.Getenv("ILLA_SECRET_KEY")), nil
+		return []byte(os.Getenv("ZWEB_SECRET_KEY")), nil
 	})
 	if err != nil {
 		return nil, err
@@ -100,7 +100,7 @@ func CreateAccessToken(id int, uid uuid.UUID) (string, error) {
 		UUID:   uid,
 		Random: vCode,
 		RegisteredClaims: jwt.RegisteredClaims{
-			Issuer: "ILLA",
+			Issuer: "ZWEB",
 			ExpiresAt: &jwt.NumericDate{
 				Time: time.Now().Add(time.Hour * 24 * 7),
 			},
@@ -108,7 +108,7 @@ func CreateAccessToken(id int, uid uuid.UUID) (string, error) {
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	accessToken, err := token.SignedString([]byte(os.Getenv("ILLA_SECRET_KEY")))
+	accessToken, err := token.SignedString([]byte(os.Getenv("ZWEB_SECRET_KEY")))
 	if err != nil {
 		return "", err
 	}

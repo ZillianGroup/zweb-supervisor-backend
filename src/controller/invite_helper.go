@@ -2,8 +2,8 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/illacloud/illa-supervisor-backend/src/accesscontrol"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/accesscontrol"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
 )
 
 func (controller *Controller) EmailAlreadyUsedByTeamMember(c *gin.Context, email string, teamID int) (bool, *model.TeamMember) {

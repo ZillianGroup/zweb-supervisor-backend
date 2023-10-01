@@ -1,6 +1,6 @@
 package model
 
-import "github.com/illacloud/illa-supervisor-backend/src/utils/idconvertor"
+import "github.com/zilliangroup/zweb-supervisor-backend/src/utils/idconvertor"
 
 type InviteMemberByEmailResponse struct {
 	Email        string `json:"email"`

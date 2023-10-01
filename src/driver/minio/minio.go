@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/illacloud/illa-supervisor-backend/src/utils/config"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/config"
 )
 
 const MINIO_DEFAULT_SERVE_ADDRESS = "http://127.0.0.1:9000/"

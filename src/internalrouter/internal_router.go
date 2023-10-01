@@ -2,8 +2,8 @@ package internalrouter
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/illacloud/illa-supervisor-backend/src/authenticator"
-	"github.com/illacloud/illa-supervisor-backend/src/controller"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/authenticator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/controller"
 )
 
 type Router struct {

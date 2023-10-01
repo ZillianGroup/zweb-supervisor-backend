@@ -14,34 +14,34 @@ const DRIVE_TYPE_MINIO = "minio"
 
 type Config struct {
 	// server config
-	ServerHost         string `env:"ILLA_SERVER_HOST"              envDefault:"0.0.0.0"`
-	ServerPort         string `env:"ILLA_SERVER_PORT"              envDefault:"8003"`
-	InternalServerPort string `env:"ILLA_SERVER_INTERNAL_PORT"     envDefault:"9001"`
-	ServerMode         string `env:"ILLA_SERVER_MODE"              envDefault:"debug"`
-	DeployMode         string `env:"ILLA_DEPLOY_MODE"              envDefault:"self-host"`
-	ServeHTTPS         string `env:"ILLA_DEPLOY_SERVE_HTTPS"       envDefault:"false"`
+	ServerHost         string `env:"ZWEB_SERVER_HOST"              envDefault:"0.0.0.0"`
+	ServerPort         string `env:"ZWEB_SERVER_PORT"              envDefault:"8003"`
+	InternalServerPort string `env:"ZWEB_SERVER_INTERNAL_PORT"     envDefault:"9001"`
+	ServerMode         string `env:"ZWEB_SERVER_MODE"              envDefault:"debug"`
+	DeployMode         string `env:"ZWEB_DEPLOY_MODE"              envDefault:"self-host"`
+	ServeHTTPS         string `env:"ZWEB_DEPLOY_SERVE_HTTPS"       envDefault:"false"`
 
 	// storage config
-	PostgresAddr     string `env:"ILLA_SUPERVISOR_PG_ADDR" envDefault:"localhost"`
-	PostgresPort     string `env:"ILLA_SUPERVISOR_PG_PORT" envDefault:"5432"`
-	PostgresUser     string `env:"ILLA_SUPERVISOR_PG_USER" envDefault:"illa_supervisor"`
-	PostgresPassword string `env:"ILLA_SUPERVISOR_PG_PASSWORD" envDefault:"illa2022"`
-	PostgresDatabase string `env:"ILLA_SUPERVISOR_PG_DATABASE" envDefault:"illa_supervisor"`
+	PostgresAddr     string `env:"ZWEB_SUPERVISOR_PG_ADDR" envDefault:"localhost"`
+	PostgresPort     string `env:"ZWEB_SUPERVISOR_PG_PORT" envDefault:"5432"`
+	PostgresUser     string `env:"ZWEB_SUPERVISOR_PG_USER" envDefault:"zweb_supervisor"`
+	PostgresPassword string `env:"ZWEB_SUPERVISOR_PG_PASSWORD" envDefault:"zweb2022"`
+	PostgresDatabase string `env:"ZWEB_SUPERVISOR_PG_DATABASE" envDefault:"zweb_supervisor"`
 	// cache config
-	RedisAddr     string `env:"ILLA_REDIS_ADDR" envDefault:"localhost"`
-	RedisPort     string `env:"ILLA_REDIS_PORT" envDefault:"6379"`
-	RedisPassword string `env:"ILLA_REDIS_PASSWORD" envDefault:""`
-	RedisDatabase int    `env:"ILLA_REDIS_DATABASE" envDefault:"0"`
+	RedisAddr     string `env:"ZWEB_REDIS_ADDR" envDefault:"localhost"`
+	RedisPort     string `env:"ZWEB_REDIS_PORT" envDefault:"6379"`
+	RedisPassword string `env:"ZWEB_REDIS_PASSWORD" envDefault:""`
+	RedisDatabase int    `env:"ZWEB_REDIS_DATABASE" envDefault:"0"`
 
 	// drive config
-	DriveType             string `env:"ILLA_DRIVE_TYPE"               envDefault:""`
-	DriveAccessKeyID      string `env:"ILLA_DRIVE_ACCESS_KEY_ID"      envDefault:"minioadmin"`
-	DriveAccessKeySecret  string `env:"ILLA_DRIVE_ACCESS_KEY_SECRET"  envDefault:"minioadmin"`
-	DriveRegion           string `env:"ILLA_DRIVE_REGION"             envDefault:""`
-	DriveEndpoint         string `env:"ILLA_DRIVE_ENDPOINT"           envDefault:"127.0.0.1:9000"`
-	DriveSystemBucketName string `env:"ILLA_DRIVE_SYSTEM_BUCKET_NAME" envDefault:"illa-supervisor"`
-	DriveTeamBucketName   string `env:"ILLA_DRIVE_TEAM_BUCKET_NAME"   envDefault:"illa-supervisor-team"`
-	DriveUploadTimeoutRaw string `env:"ILLA_DRIVE_UPLOAD_TIMEOUT"     envDefault:"300s"`
+	DriveType             string `env:"ZWEB_DRIVE_TYPE"               envDefault:""`
+	DriveAccessKeyID      string `env:"ZWEB_DRIVE_ACCESS_KEY_ID"      envDefault:"minioadmin"`
+	DriveAccessKeySecret  string `env:"ZWEB_DRIVE_ACCESS_KEY_SECRET"  envDefault:"minioadmin"`
+	DriveRegion           string `env:"ZWEB_DRIVE_REGION"             envDefault:""`
+	DriveEndpoint         string `env:"ZWEB_DRIVE_ENDPOINT"           envDefault:"127.0.0.1:9000"`
+	DriveSystemBucketName string `env:"ZWEB_DRIVE_SYSTEM_BUCKET_NAME" envDefault:"zweb-supervisor"`
+	DriveTeamBucketName   string `env:"ZWEB_DRIVE_TEAM_BUCKET_NAME"   envDefault:"zweb-supervisor-team"`
+	DriveUploadTimeoutRaw string `env:"ZWEB_DRIVE_UPLOAD_TIMEOUT"     envDefault:"300s"`
 	DriveUploadTimeout    time.Duration
 }
 

@@ -2,14 +2,14 @@ database-schema
 ---------------
 
 
--- illa_supervisor-database-design
+-- zweb_supervisor-database-design
 
 
 -- init
-create database illa_supervisor;
-\c illa_supervisor;
-create user illa_supervisor with encrypted password 'illa2022';
-grant all privileges on database illa_supervisor to illa_supervisor;
+create database zweb_supervisor;
+\c zweb_supervisor;
+create user zweb_supervisor with encrypted password 'zweb2022';
+grant all privileges on database zweb_supervisor to zweb_supervisor;
 CREATE EXTENSION pg_trgm;
 CREATE EXTENSION btree_gin;
 
@@ -36,7 +36,7 @@ create table if not exists teams (
 CREATE INDEX teams_uid ON teams (uid);
 
 alter table
-    teams owner to illa_supervisor;
+    teams owner to zweb_supervisor;
 
 -- users
 create table if not exists users (
@@ -58,7 +58,7 @@ CREATE INDEX users_nickname_fulltext ON users USING gin (to_tsvector('english', 
 CREATE INDEX users_email_fulltext ON users USING gin (to_tsvector('english', email));
 
 alter table
-    users owner to illa_supervisor;
+    users owner to zweb_supervisor;
 
 -- team_members
 create table if not exists team_members (
@@ -75,7 +75,7 @@ create table if not exists team_members (
 CREATE INDEX team_members_team_and_user_id ON team_members (team_id, user_id);
 
 alter table
-    team_members owner to illa_supervisor;
+    team_members owner to zweb_supervisor;
 
 -- invites
 create table if not exists invites (
@@ -98,7 +98,7 @@ CREATE INDEX invites_email ON invites (email);
 CREATE INDEX invites_user_role ON invites (user_role);
 
 alter table
-    invites owner to illa_supervisor;
+    invites owner to zweb_supervisor;
 
 
 /**
@@ -119,7 +119,7 @@ create table if not exists roles (
 );
 CREATE INDEX roles_id_team_id ON roles(id, team_id);
 CREATE INDEX roles_name_fulltext ON roles USING gin (to_tsvector('english', name));
-alter table roles owner to illa_supervisor;
+alter table roles owner to zweb_supervisor;
 
 -- user_role_relations
 create table if not exists user_role_relations (
@@ -132,7 +132,7 @@ create table if not exists user_role_relations (
     updated_at               timestamp                            not null
 );
 CREATE INDEX user_role_relations_team_role_user_id ON user_role_relations(team_id, role_id, user_id);
-alter table user_role_relations owner to illa_supervisor;
+alter table user_role_relations owner to zweb_supervisor;
 
 -- unit_role_relations
 create table if not exists unit_role_relations (
@@ -146,7 +146,7 @@ create table if not exists unit_role_relations (
     updated_at               timestamp                            not null
 );
 CREATE INDEX unit_role_relations_team_role_unit_id_and_unit_type ON unit_role_relations(team_id, role_id, unit_id, unit_type);
-alter table unit_role_relations owner to illa_supervisor;
+alter table unit_role_relations owner to zweb_supervisor;
 
 
 /**
@@ -158,7 +158,7 @@ alter table unit_role_relations owner to illa_supervisor;
 INSERT INTO teams ( 
     id, uid, name, identifier, icon, permission, created_at, updated_at
 ) VALUES (
-    0, '00000000-0000-0000-0000-000000000000', 'my-team'    , '0'  , 'https://cdn.illacloud.com/email-template/people.png', to_jsonb('{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}'::text), CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+    0, '00000000-0000-0000-0000-000000000000', 'my-team'    , '0'  , 'https://cdn.zilliangroup.com/email-template/people.png', to_jsonb('{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}'::text), CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
 );
 
 INSERT INTO users (

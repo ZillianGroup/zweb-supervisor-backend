@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"github.com/illacloud/illa-supervisor-backend/src/authenticator"
-	"github.com/illacloud/illa-supervisor-backend/src/model"
-	"github.com/illacloud/illa-supervisor-backend/src/utils/tokenvalidator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/authenticator"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/model"
+	"github.com/zilliangroup/zweb-supervisor-backend/src/utils/tokenvalidator"
 )
 
 type Controller struct {

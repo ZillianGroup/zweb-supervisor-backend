@@ -30,15 +30,15 @@ jobs:
       - run:
           name: Download build scripts
           command: |
-            git clone https://github.com/illacloud/build-all-in-one-image
+            git clone https://github.com/zilliangroup/build-all-in-one-image
       - run:
           name: Build and push Docker image
           command: |
             cd ./build-all-in-one-image
             echo "building FE ${FE}, BE ${BE}, SBE {SBE}"
-            docker build -f ./dockerfile -t illasoft/illa-builder:${IMAGE_TAG} --build-arg FE=${FE} --build-arg BE=${BE} --build-arg SBE=${SBE} --no-cache .
+            docker build -f ./dockerfile -t zilliangroup/zweb-builder:${IMAGE_TAG} --build-arg FE=${FE} --build-arg BE=${BE} --build-arg SBE=${SBE} --no-cache .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PWD
-            docker push illasoft/illa-builder:${IMAGE_TAG}
+            docker push zilliangroup/zweb-builder:${IMAGE_TAG}
         
 workflows:
   branch-build:
